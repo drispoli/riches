@@ -1,0 +1,93 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" namespace="/" extends="struts-default,tiles-default">
+
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+        </result-types>
+    </package>
+
+
+
+    <package name="login" namespace="/login" extends="struts-default,tiles-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+        </result-types>
+
+        <action name="Login">
+            <result>/login/login.jsp</result>
+        </action>
+        <action name="Error">
+            <result>/login/error.jsp</result>
+        </action>
+        <action name="Logout">
+            <result>/login/logout.jsp</result>
+        </action>
+        <action name="Register">
+            <result>/login/Register.jsp</result>
+        </action>
+        <action name="PerformRegistration" class="com.fortify.samples.riches.PerformRegistration">
+            <result>/login/PerformRegistration.jsp</result>
+            <result name="input">/login/PerformRegistration.jsp</result>
+            <result name="error">/login/PerformRegistration.jsp</result>
+        </action>
+    </package>
+
+    <package name="auth" namespace="/auth" extends="struts-default,tiles-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+        </result-types>
+        
+        <action name="AccountSummary" class="com.fortify.samples.riches.AccountSummary">
+            <result>/pages/AccountSummary.jsp</result>
+        </action>
+        <action name="AccountDetails" class="com.fortify.samples.riches.AccountDetails">
+            <result>/pages/AccountDetails.jsp</result>
+        </action>
+
+        <action name="Transfer" class="com.fortify.samples.riches.Transfer">
+            <result>/pages/Transfer.jsp</result>
+        </action>
+        <action name="PerformTransfer" class="com.fortify.samples.riches.PerformTransfer">
+            <result>/pages/PerformTransfer.jsp</result>
+            <result name="input">/pages/PerformTransfer.jsp</result>
+            <result name="error">/pages/PerformTransfer.jsp</result>
+        </action>
+
+        <action name="Check" class="com.fortify.samples.riches.Check">
+            <result>/pages/Check.jsp</result>
+        </action>
+        <action name="PerformCheck" class="com.fortify.samples.riches.PerformCheck">
+            <result>/pages/PerformCheck.jsp</result>
+            <result name="input">/pages/PerformCheck.jsp</result>
+            <result name="error">/pages/PerformCheck.jsp</result>
+        </action>
+
+        <action name="Messages" class="com.fortify.samples.riches.Messages">
+            <result>/pages/Messages.jsp</result>
+        </action>
+        <action name="ViewMessage" class="com.fortify.samples.riches.ViewMessage">
+            <result>/pages/ViewMessage.jsp</result>
+        </action>
+        <action name="DeleteMessage" class="com.fortify.samples.riches.DeleteMessage">
+            <result>/pages/DeleteMessage.jsp</result>
+        </action>
+
+    </package>
+
+    <package name="oper" namespace="/auth/oper" extends="struts-default">
+        <action name="Admin" class="com.fortify.samples.riches.oper.Admin">
+            <result>/pages/oper/Admin.jsp</result>
+        </action>
+        <action name="SendMessage" class="com.fortify.samples.riches.oper.SendMessage">
+            <result>/pages/oper/SendMessage.jsp</result>
+            <result name="input">/pages/oper/InvalidEmail.jsp</result>
+        </action>
+    </package>
+
+
+
+</struts>
